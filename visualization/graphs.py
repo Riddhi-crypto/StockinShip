@@ -64,18 +64,18 @@ class StockGraphs:
 
         return fig
 
-    # ==========================================
+        # ==========================================
     # CANDLESTICK CHART
     # ==========================================
 
     def candlestick_chart(self, df, company_name):
 
         fig = go.Figure(data=[go.Candlestick(
-            x=df['Date'],
-            open=df['Open'],
-            high=df['High'],
-            low=df['Low'],
-            close=df['Close']
+            x=df["Date"],
+            open=df["Open"],
+            high=df["High"],
+            low=df["Low"],
+            close=df["Close"]
         )])
 
         fig.update_layout(

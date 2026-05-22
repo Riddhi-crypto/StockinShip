@@ -167,8 +167,26 @@ elif graph_option == "Scatter Plot":
         color="Company",
         title="Scatter Plot Comparison"
     )
+graphs = StockGraphs()
 
-st.plotly_chart(comparison_fig)
+if graph_option == "Candlestick Chart":
+
+    single_company = selected_companies[0]
+
+    single_symbol = companies[single_company]
+
+    candle_df = fetcher.fetch_stock_data(single_symbol)
+
+    fig = graphs.candlestick_chart(
+        candle_df,
+        single_company
+    )
+
+    st.plotly_chart(fig)
+
+else:
+
+    st.plotly_chart(comparison_fig)
 # ==========================================
 # STOCK PREDICTION
 # ==========================================
